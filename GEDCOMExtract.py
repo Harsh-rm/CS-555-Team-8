@@ -139,7 +139,6 @@ class Person:
         return isADayBeforeBDay(self.birth_date, convertDate(datetime.datetime.now().strftime('%Y-%m-%d')))
 
 
-
     # def BirthBeforeDeath(self):
     #     """
     #     Written by NM - Planning
@@ -172,7 +171,32 @@ class Person:
 
     def isLessThan150YearOld(self):
         """
-        Written by HRM - Planning
+        Written by HRM - Done
         :return:
         """
+        return True if self.age < 150 else False
         # return True if self.age < 150 else False
+        # after refactor, the age calculation is written as a function, and redundant variables are removed
+
+class Family:
+    def __init__(self, FID: str, marry_date: str, divorce_date: str, husband_id: str,
+                 husband_name: str, wife_id: str, wife_name: str, children: list):
+        self.FID = FID
+        self.husband_id = husband_id
+        self.husband_name = husband_name
+        self.wife_id = wife_id
+        self.wife_name = wife_name
+        self.children = children
+        self.marry_date = convertDate(marry_date)
+        self.divorce_date = convertDate(divorce_date)
+
+    def showInfo(self):
+        print("------------------------")
+        print('FID: ' + self.FID)
+        print('marry date: ' + '-'.join([str(i) for i in self.marry_date]))
+        print('divorce date: ' + '-'.join([str(i) for i in self.divorce_date]))
+        print('husband ID: ' + self.husband_id)
+        print('husband name: ' + self.husband_name)
+        print('wife ID: ' + self.wife_id)
+        print('wife name: ' + self.wife_name)
+        print('children_ids: ' + str(self.children))
